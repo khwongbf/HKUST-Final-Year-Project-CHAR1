@@ -304,6 +304,11 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Removes the flatmate preference from the user.
+	 * @param webRequest the HTTP request that contains the header "Authorization" for user's info.
+	 * @return HTTP response of whether the removal is successful.
+	 */
 	@DeleteMapping("/flatmatePreference/delete")
 	public ResponseEntity removePreference(WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
@@ -323,6 +328,12 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Searches other flatmates using flatmate preference.
+	 * @param flatmatePreferenceDTO Flatmate preference object in the HTTP request body.
+	 * @param webRequest The web request.
+	 * @return HTTP response that contains the query results.
+	 */
 	@PostMapping("/flatmatePreference/find")
 	public ResponseEntity<List<TenantFlatmatePreferenceDTO>> findFlatmateUsingDTO(
 			@RequestBody FlatmatePreferenceDTO flatmatePreferenceDTO, WebRequest webRequest){
@@ -344,6 +355,12 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Initializes a group, and set the initializing tenant as the tenant group owner.
+	 * @param tenantGroupDTO The object that contains the details of the tenant group.
+	 * @param webRequest The web request that contains the header "Authorization" for user's info
+	 * @return HTTP response that contains a new "Authorization" header value. Please replace the old header value with the value returned by the request in future use.
+	 */
 	@PostMapping("/group/init")
 	public ResponseEntity initializeGroup(@Valid @RequestBody TenantGroupDTO tenantGroupDTO, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
