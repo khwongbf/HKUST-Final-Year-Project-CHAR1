@@ -188,6 +188,12 @@ public class ApartmentOwnerController {
 		}
 	}
 
+	/**
+	 * Modifies a lease with the provided details
+	 * @param rentalDetailsDTO the object that contains the details of the modification.
+	 * @param webRequest The web request that has header "Authorization", whose value is the JWT token that identifies the user and its roles.
+	 * @return HTTP response that indicates whether the modification is successful.
+	 */
 	@PutMapping("/modifyLease")
 	public ResponseEntity modifyLeasingApartment(@Valid @RequestBody RentalDetailsDTO rentalDetailsDTO, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
@@ -284,6 +290,11 @@ public class ApartmentOwnerController {
 		}
 	}
 
+	/**
+	 * Promotes the user to a seller.
+	 * @param webRequest The incoming request that identifies the user through header "Authorization", whose value is a JWT token containing the username and role.
+	 * @return HTTP response of whether the promotion is successful.
+	 */
 	@GetMapping("/promoteToSeller")
 	public ResponseEntity promoteToSeller(WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
