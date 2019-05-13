@@ -9,6 +9,7 @@ import hk.ust.char1.server.security.jwt.JWTTokenGenerator;
 import hk.ust.char1.server.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -101,8 +102,15 @@ public class ApartmentOwnerController {
 		}
 	}
 
+	/**
+	 * Updates details of the apartment based on the unique tag.
+	 * @param apartmentDTO The details of the apartment,
+	 * @param multipartFile The photo of the apartment, can be null
+	 * @param webRequest the web request, containing a header "Authorization" for getting the user info.
+	 * @return HTTP response of whether the update is successful.
+	 */
 	@PostMapping("/updateApartment")
-	public ResponseEntity updateApartmentDetails(@Valid @RequestBody ApartmentDTO apartmentDTO,@RequestParam("photo") MultipartFile multipartFile, WebRequest webRequest){
+	public ResponseEntity updateApartmentDetails(@Valid @RequestBody ApartmentDTO apartmentDTO, @Nullable @RequestParam("photo") MultipartFile multipartFile, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
 		if (decodedJWT == null){
 			return ResponseEntity.status(UNAUTHORIZED).build();
@@ -115,7 +123,9 @@ public class ApartmentOwnerController {
 			}
 
 			try {
-				apartmentDTO.setPhoto(multipartFile.getBytes());
+				if (multipartFile != null){
+					apartmentDTO.setPhoto(multipartFile.getBytes());
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -125,6 +135,12 @@ public class ApartmentOwnerController {
 		}
 	}
 
+	/**
+	 * Removes a registered apartment from an owner
+	 * @param apartmentDTO The object which contains the unique tag for deletion.
+	 * @param webRequest The web request, containing a header "Authorization" for user info.
+	 * @return HTTP response of whether the deletion is successful.
+	 */
 	@PostMapping("/removeApartment")
 	public ResponseEntity removeApartment(@Valid @RequestBody ApartmentDTO apartmentDTO, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
@@ -144,6 +160,12 @@ public class ApartmentOwnerController {
 		}
 	}
 
+	/**
+	 * Puts an apartment into lease. The apartment should not be under sale.
+	 * @param rentalDetailsDTOList A list of objects that contains the apartment that is to be leased
+	 * @param webRequest The web request that contains the user info as in header "Authorization".
+	 * @return HTTP response of whether the leasing process is successful.
+	 */
 	@PostMapping("/leaseApartments")
 	public ResponseEntity leaseNewApartments(@Valid @RequestBody List<RentalDetailsDTO> rentalDetailsDTOList, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
@@ -210,6 +232,12 @@ public class ApartmentOwnerController {
 		}
 	}
 
+	/**
+	 * Removes an apartment from lease.
+	 * @param rentalDetailsDTO The object which contain the unique tag for the apartment to be removed.
+	 * @param webRequest the web request that contains the user information in header "Authorization"
+	 * @return HTTP response of whether the removal is successful.
+	 */
 	@DeleteMapping("/deleteLease")
 	public ResponseEntity removeApartmentFromLeasing(@Valid @RequestBody RentalDetailsDTO rentalDetailsDTO, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
