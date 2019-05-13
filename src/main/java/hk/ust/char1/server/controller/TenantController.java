@@ -173,6 +173,11 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * List the apartment preferences that the tenant has.
+	 * @param webRequest the HTTP request that contains a header "Authorization" for user's info.
+	 * @return HTTP response that contains query results in body, and a status code which indicates whether the query is successful.
+	 */
 	@GetMapping("/apartmentPreference/listSelf")
 	public ResponseEntity<List<RentalApartmentPreferenceDTO>> findAllSelfPreference(WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
@@ -194,9 +199,15 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Deletes the apartment preference by the tenant.
+	 * @param apartmentPreferenceTitle The title of the preference, as in request the body.
+	 * @param webRequest the web request that contains the user's info in header "Authorization".
+	 * @return HTTP response that indicates whether the deletion is successful.
+	 */
 	@DeleteMapping("/apartmentPreference/delete")
 	public ResponseEntity deleteApartmentPreference(
-			@NotNull @NotBlank @NotEmpty String apartmentPreferenceTitle, WebRequest webRequest){
+			@NotNull @NotBlank @RequestBody String apartmentPreferenceTitle, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
 		if (decodedJWT == null){
 			return ResponseEntity.status(UNAUTHORIZED).build();
@@ -215,6 +226,12 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Attach a flatmate preference to the tenant. It will overwrite the current preference.
+	 * @param flatmatePreferenceDTO The object that contains the flatmate preference.
+	 * @param webRequest The web request that contains the header "Authorization" for the user's info.
+	 * @return HTTP response that indicates whether the attachment is successful.
+	 */
 	@PostMapping("/flatmatePreference/add")
 	public ResponseEntity addNewFlatmatePreference(
 			@NotNull @RequestBody FlatmatePreferenceDTO flatmatePreferenceDTO, WebRequest webRequest){
@@ -235,6 +252,12 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Modifies the current flatmate preference.
+	 * @param flatmatePreferenceDTO The object that contains the flatemate preference.
+	 * @param webRequest The web request that contains the header "Authorization" for user's info.
+	 * @return HTTP response that indicates whether the modification is successful.
+	 */
 	@PutMapping("/flatmatePreference/modify")
 	public ResponseEntity modifyFlatmatePreference(
 			@NotNull @RequestBody FlatmatePreferenceDTO flatmatePreferenceDTO, WebRequest webRequest){
@@ -255,6 +278,11 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Finds the flatmate preference of the given tenant.
+	 * @param webRequest The web request that contains the tenant's information.
+	 * @return HTTP response that indicates whether the finding is successful, and a body containing query results if successful.
+	 */
 	@GetMapping("/flatmatePreference/listSelf")
 	public ResponseEntity<TenantFlatmatePreferenceDTO> findSelfFlatmatePreferences(WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
