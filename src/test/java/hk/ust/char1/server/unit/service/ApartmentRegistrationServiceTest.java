@@ -42,7 +42,7 @@ public class ApartmentRegistrationServiceTest {
     @MockBean
     private UserRepository userRepository;
 
-    private User user = new User("charlesz", "charlesz","8888-8888","charlesz@cse.ust.hk");
+    private User user = new User("charlesz", "charlesz","88888888","charlesz@cse.ust.hk");
     private ApartmentDTO apartmentDTO = new ApartmentDTO();
     private Role role = new Role("LANDLORD");
 

@@ -48,7 +48,7 @@ public class ApartmentJPATests {
     @Test
     public void addSingleApartmentTest(){
         byte[] apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner);
 
         var savedApartment = apartmentRepository.save(new Apartment("CHARLESZ", new BigDecimal("500.00"), "My address", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner));
@@ -61,9 +61,9 @@ public class ApartmentJPATests {
     public void removeAllApartmentsTest(){
         byte[] apartmentPhoto = new byte[5000];
 
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("a", "a", "1234-5678", "a@b.com", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("a", "a", "12345678", "a@b.com", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("b", "a", "1234-5668", "b@b.com", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("b", "a", "12345668", "b@b.com", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
 
         testEntityManager.persist(new Apartment("CHARLESZ1", new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1));
@@ -77,11 +77,11 @@ public class ApartmentJPATests {
     @Test
     public void findAllTest(){
         byte[] apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("a","a", "1234-5678", "a@b.com", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("a","a", "12345678", "a@b.com", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("b","a", "1235-5678", "b@b.com", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("b","a", "12355678", "b@b.com", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
-        ApartmentOwner apartmentOwner3 = new ApartmentOwner("c","a", "1214-5678", "c@b.com", new ArrayList<>());
+        ApartmentOwner apartmentOwner3 = new ApartmentOwner("c","a", "12145678", "c@b.com", new ArrayList<>());
         testEntityManager.persist(apartmentOwner3);
 
         Apartment Apartment1 = new Apartment("CHARLESZ1", new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1);
@@ -98,11 +98,11 @@ public class ApartmentJPATests {
     @Test
     public void findByIdTest(){
         byte[] apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "1234-5677", "charesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "12345677", "charesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
-        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "1235-5678", "charlesz@us.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "12355678", "charlesz@us.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner3);
         Apartment Apartment1 = new Apartment("CHARLESZ1", new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1);
         Apartment Apartment2 = new Apartment("CHARLESZ2", new BigDecimal("500.00"), "My address2", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner2);

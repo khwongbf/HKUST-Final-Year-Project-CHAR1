@@ -37,7 +37,7 @@ public class UserJPATests {
 
     @Test
     public void addSingleUserTest(){
-        var savedUser = userRepository.save(new User("comp3311","helloworld", "1234-5678", "iloveyou@gmail.com"));
+        var savedUser = userRepository.save(new User("comp3311","helloworld", "12345678", "iloveyou@gmail.com"));
 
         AssertionsForClassTypes.assertThat(savedUser).hasFieldOrPropertyWithValue("username", "comp3311");
         AssertionsForClassTypes.assertThat(savedUser).hasFieldOrPropertyWithValue("password","helloworld");
@@ -45,8 +45,8 @@ public class UserJPATests {
 
     @Test
     public void removeAllUsersTest(){
-        testEntityManager.persist(new User("obama","amabo", "1234-5677", "iloveyu@gmail.com"));
-        testEntityManager.persist(new User("trump", "pmurt", "1234-5778", "ilveyou@gmail.com"));
+        testEntityManager.persist(new User("obama","amabo", "12345677", "iloveyu@gmail.com"));
+        testEntityManager.persist(new User("trump", "pmurt", "12345778", "ilveyou@gmail.com"));
 
         userRepository.deleteAll();
 
@@ -55,9 +55,9 @@ public class UserJPATests {
 
     @Test
     public void findAllTest(){
-        var user1 = new User("obama","amabo","1234-5677", "iloveyu@gmail.com");
-        var user2 = new User("trump", "pmurt", "1234-5778", "ilveyou@gmail.com");
-        var user3 = new User("bush", "hsub", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo","12345677", "iloveyu@gmail.com");
+        var user2 = new User("trump", "pmurt", "12345778", "ilveyou@gmail.com");
+        var user3 = new User("bush", "hsub", "12345678", "iloveyou@gmail.com");
 
         testEntityManager.persist(user1);
         testEntityManager.persist(user2);
@@ -68,9 +68,9 @@ public class UserJPATests {
 
     @Test
     public void findByIdTest(){
-        var user1 = new User("obama","amabo", "1234-5677", "iloveyu@gmail.com");
-        var user2 = new User("trump", "pmurt", "1234-5778", "ilveyou@gmail.com");
-        var user3 = new User("bush", "hsub", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo", "12345677", "iloveyu@gmail.com");
+        var user2 = new User("trump", "pmurt", "12345778", "ilveyou@gmail.com");
+        var user3 = new User("bush", "hsub", "12345678", "iloveyou@gmail.com");
 
         testEntityManager.persist(user1);
         testEntityManager.persist(user2);
@@ -83,7 +83,7 @@ public class UserJPATests {
 
     @Test
     public void existsByEmailTest(){
-        var user1 = new User("obama","amabo", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo", "12345678", "iloveyou@gmail.com");
         testEntityManager.persist(user1);
 
         AssertionsForClassTypes.assertThat(userRepository.existsUserByEmail(user1.getEmail())).isTrue();
@@ -92,16 +92,16 @@ public class UserJPATests {
 
     @Test
     public void existsByPhoneTest(){
-        var user1 = new User("obama","amabo", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo", "12345678", "iloveyou@gmail.com");
         testEntityManager.persist(user1);
 
-        AssertionsForClassTypes.assertThat(userRepository.existsUserByPhoneNumber("1234-5678")).isTrue();
-        AssertionsForClassTypes.assertThat(userRepository.existsUserByPhoneNumber("0000-5678")).isFalse();
+        AssertionsForClassTypes.assertThat(userRepository.existsUserByPhoneNumber("12345678")).isTrue();
+        AssertionsForClassTypes.assertThat(userRepository.existsUserByPhoneNumber("00005678")).isFalse();
     }
 
     @Test
     public void existsByUsernameTest(){
-        var user1 = new User("obama","amabo", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo", "12345678", "iloveyou@gmail.com");
         testEntityManager.persist(user1);
 
         AssertionsForClassTypes.assertThat(userRepository.existsUserByUsername(user1.getUsername())).isTrue();
@@ -110,7 +110,7 @@ public class UserJPATests {
 
     @Test
     public void findUsersActivatedByUsername(){
-        var user1 = new User("obama","amabo", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo", "12345678", "iloveyou@gmail.com");
         testEntityManager.persist(user1);
 
         AssertionsForClassTypes.assertThat(userRepository.findUserByUsernameAndActivated(user1.getUsername(), false)).isEqualTo(user1);

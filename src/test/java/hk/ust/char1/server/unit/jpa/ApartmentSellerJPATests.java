@@ -40,7 +40,7 @@ public class ApartmentSellerJPATests {
 
     @Test
     public void addSingleApartmentSellerTest(){
-        var savedApartmentSeller = apartmentSellerRepository.save(new ApartmentSeller("comp3311","helloworld", "1234-5678", "iloveyou@gmail.com", new ArrayList<>(),new BigDecimal("20.00")));
+        var savedApartmentSeller = apartmentSellerRepository.save(new ApartmentSeller("comp3311","helloworld", "12345678", "iloveyou@gmail.com", new ArrayList<>(),new BigDecimal("20.00")));
 
         AssertionsForClassTypes.assertThat(savedApartmentSeller).hasFieldOrPropertyWithValue("username", "comp3311");
         AssertionsForClassTypes.assertThat(savedApartmentSeller).hasFieldOrPropertyWithValue("password","helloworld");
@@ -49,8 +49,8 @@ public class ApartmentSellerJPATests {
 
     @Test
     public void removeAllApartmentSellersTest(){
-        testEntityManager.persist(new ApartmentSeller("obama","amabo", "1234-5677", "iloveyu@gmail.com", new ArrayList<>(), new BigDecimal("35.00")));
-        testEntityManager.persist(new ApartmentSeller("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00")));
+        testEntityManager.persist(new ApartmentSeller("obama","amabo", "12345677", "iloveyu@gmail.com", new ArrayList<>(), new BigDecimal("35.00")));
+        testEntityManager.persist(new ApartmentSeller("trump", "pmurt", "12345778", "ilveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00")));
 
         apartmentSellerRepository.deleteAll();
 
@@ -59,9 +59,9 @@ public class ApartmentSellerJPATests {
 
     @Test
     public void findAllTest(){
-        var apartmentSeller1 = new ApartmentSeller("obama","amabo", "1234-5677", "iloveyu@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
-        var apartmentSeller2 = new ApartmentSeller("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
-        var apartmentSeller3 = new ApartmentSeller("bush", "hsub", "1234-5678", "iloveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
+        var apartmentSeller1 = new ApartmentSeller("obama","amabo", "12345677", "iloveyu@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
+        var apartmentSeller2 = new ApartmentSeller("trump", "pmurt", "12345778", "ilveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
+        var apartmentSeller3 = new ApartmentSeller("bush", "hsub", "12345678", "iloveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
 
         testEntityManager.persist(apartmentSeller1);
         testEntityManager.persist(apartmentSeller2);
@@ -72,9 +72,9 @@ public class ApartmentSellerJPATests {
 
     @Test
     public void findByIdTest(){
-        var apartmentSeller1 = new ApartmentSeller("obama","amabo", "1234-5677", "iloveyu@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
-        var apartmentSeller2 = new ApartmentSeller("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
-        var apartmentSeller3 = new ApartmentSeller("bush", "hsub", "1234-5678", "iloveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
+        var apartmentSeller1 = new ApartmentSeller("obama","amabo", "12345677", "iloveyu@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
+        var apartmentSeller2 = new ApartmentSeller("trump", "pmurt", "12345778", "ilveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
+        var apartmentSeller3 = new ApartmentSeller("bush", "hsub", "12345678", "iloveyou@gmail.com", new ArrayList<>(), new BigDecimal("35.00"));
 
         testEntityManager.persist(apartmentSeller1);
         testEntityManager.persist(apartmentSeller2);

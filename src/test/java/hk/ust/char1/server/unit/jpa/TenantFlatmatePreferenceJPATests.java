@@ -46,7 +46,7 @@ public class TenantFlatmatePreferenceJPATests {
     @Test
     public void addSingleTenantFlatmatePreferenceTest(){
 
-        var tenant = new Tenant(new User("a", "a", "1234-5678", "a@b.com"));
+        var tenant = new Tenant(new User("a", "a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant);
 
         var entityToBePersisted = new TenantFlatmatePreference();
@@ -70,10 +70,10 @@ public class TenantFlatmatePreferenceJPATests {
     @Test
     public void removeAllTenantFlatmatePreferencesTest(){
 
-        var tenant1 = new Tenant(new User("a", "a", "1234-5678", "a@b.com"));
+        var tenant1 = new Tenant(new User("a", "a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
 
-        var tenant2 = new Tenant(new User("b", "a", "1235-5678", "b@b.com"));
+        var tenant2 = new Tenant(new User("b", "a", "12355678", "b@b.com"));
         testEntityManager.persist(tenant2);
 
         var entityToBePersisted1 = new TenantFlatmatePreference();
@@ -106,13 +106,13 @@ public class TenantFlatmatePreferenceJPATests {
 
     @Test
     public void findAllTest(){
-        var tenant1 = new Tenant(new User("a", "a", "1234-5678", "a@b.com"));
+        var tenant1 = new Tenant(new User("a", "a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
 
-        var tenant2 = new Tenant(new User("b", "a", "1235-5678", "b@b.com"));
+        var tenant2 = new Tenant(new User("b", "a", "12355678", "b@b.com"));
         testEntityManager.persist(tenant2);
 
-        var tenant3 = new Tenant(new User("c", "a", "1235-5678", "b@b.com"));
+        var tenant3 = new Tenant(new User("c", "a", "12355678", "b@b.com"));
         testEntityManager.persist(tenant3);
 
         var tenantFlatmatePreference1 = new TenantFlatmatePreference();
@@ -138,13 +138,13 @@ public class TenantFlatmatePreferenceJPATests {
     @Test
     public void findByIdTest(){
 
-        var tenant1 = new Tenant(new User("a", "a", "1234-5678", "a@b.com"));
+        var tenant1 = new Tenant(new User("a", "a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
 
-        var tenant2 = new Tenant(new User("b", "a", "1235-5678", "b@b.com"));
+        var tenant2 = new Tenant(new User("b", "a", "12355678", "b@b.com"));
         testEntityManager.persist(tenant2);
 
-        var tenant3 = new Tenant(new User("c", "a", "1235-5678", "b@b.com"));
+        var tenant3 = new Tenant(new User("c", "a", "12355678", "b@b.com"));
         testEntityManager.persist(tenant3);
 
         var tenantFlatmatePreference1 = new TenantFlatmatePreference();

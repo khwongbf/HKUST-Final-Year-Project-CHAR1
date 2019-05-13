@@ -39,7 +39,7 @@ public class BuyerJPATests {
 
     @Test
     public void addSingleBuyerTest(){
-        var savedBuyer = buyerRepository.save(new Buyer("comp3311","helloworld", "1234-5678", "iloveyou@gmail.com", new BigDecimal("50.00"), 3));
+        var savedBuyer = buyerRepository.save(new Buyer("comp3311","helloworld", "12345678", "iloveyou@gmail.com", new BigDecimal("50.00"), 3));
 
         AssertionsForClassTypes.assertThat(savedBuyer).hasFieldOrPropertyWithValue("username", "comp3311");
         AssertionsForClassTypes.assertThat(savedBuyer).hasFieldOrPropertyWithValue("password","helloworld");
@@ -48,8 +48,8 @@ public class BuyerJPATests {
 
     @Test
     public void removeAllBuyersTest(){
-        testEntityManager.persist(new Buyer("obama","amabo", "1234-5677", "iloveyu@gmail.com", new BigDecimal("50.00"), 3));
-        testEntityManager.persist(new Buyer("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new BigDecimal("50.00"), 3));
+        testEntityManager.persist(new Buyer("obama","amabo", "12345677", "iloveyu@gmail.com", new BigDecimal("50.00"), 3));
+        testEntityManager.persist(new Buyer("trump", "pmurt", "12345778", "ilveyou@gmail.com", new BigDecimal("50.00"), 3));
 
         buyerRepository.deleteAll();
 
@@ -58,9 +58,9 @@ public class BuyerJPATests {
 
     @Test
     public void findAllTest(){
-        var buyer1 = new Buyer("obama","amabo", "1234-5677", "iloveyu@gmail.com", new BigDecimal("50.00"), 3);
-        var buyer2 = new Buyer("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new BigDecimal("50.00"), 3);
-        var buyer3 = new Buyer("bush", "hsub", "1234-5678", "iloveyou@gmail.com", new BigDecimal("50.00"), 3);
+        var buyer1 = new Buyer("obama","amabo", "12345677", "iloveyu@gmail.com", new BigDecimal("50.00"), 3);
+        var buyer2 = new Buyer("trump", "pmurt", "12345778", "ilveyou@gmail.com", new BigDecimal("50.00"), 3);
+        var buyer3 = new Buyer("bush", "hsub", "12345678", "iloveyou@gmail.com", new BigDecimal("50.00"), 3);
 
         testEntityManager.persist(buyer1);
         testEntityManager.persist(buyer2);
@@ -71,9 +71,9 @@ public class BuyerJPATests {
 
     @Test
     public void findByIdTest(){
-        var buyer1 = new Buyer("obama","amabo", "1234-5677", "iloveyu@gmail.com", new BigDecimal("50.00"), 3);
-        var buyer2 = new Buyer("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new BigDecimal("50.00"), 3);
-        var buyer3 = new Buyer("bush", "hsub", "1234-5678", "iloveyou@gmail.com", new BigDecimal("50.00"), 3);
+        var buyer1 = new Buyer("obama","amabo", "12345677", "iloveyu@gmail.com", new BigDecimal("50.00"), 3);
+        var buyer2 = new Buyer("trump", "pmurt", "12345778", "ilveyou@gmail.com", new BigDecimal("50.00"), 3);
+        var buyer3 = new Buyer("bush", "hsub", "12345678", "iloveyou@gmail.com", new BigDecimal("50.00"), 3);
 
         testEntityManager.persist(buyer1);
         testEntityManager.persist(buyer2);

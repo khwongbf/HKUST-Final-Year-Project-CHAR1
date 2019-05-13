@@ -46,9 +46,9 @@ public class TenantGroupJPATests {
     @Test
     public void addSingleTest(){
 
-        var tenant1 = new Tenant(new User("a", "a", "1234-5678", "a@b.com"));
+        var tenant1 = new Tenant(new User("a", "a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
-        var tenant2 = new Tenant(new User("b", "a", "1254-5678", "b@b.com"));
+        var tenant2 = new Tenant(new User("b", "a", "12545678", "b@b.com"));
         testEntityManager.persist(tenant2);
 
         var tenants = new ArrayList<Tenant>();
@@ -65,9 +65,9 @@ public class TenantGroupJPATests {
     @Test
     public void removeAllTenantGroupsTest(){
 
-        var tenant1 = new Tenant(new User("a", "a", "1234-5678", "a@b.com"));
+        var tenant1 = new Tenant(new User("a", "a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
-        var tenant2 = new Tenant(new User("b", "a", "1235-5678", "b@b.com"));
+        var tenant2 = new Tenant(new User("b", "a", "12355678", "b@b.com"));
         testEntityManager.persist(tenant2);
 
         var tenants = new ArrayList<Tenant>();

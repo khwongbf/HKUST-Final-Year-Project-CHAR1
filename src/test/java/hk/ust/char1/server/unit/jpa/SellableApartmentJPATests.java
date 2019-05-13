@@ -48,7 +48,7 @@ public class SellableApartmentJPATests {
     @Test
     public void addSingleApartmentTest(){
         var apartmentPhoto = new byte[5000];
-        var apartmentOwner = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        var apartmentOwner = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner);
 
         var savedApartment = sellableApartmentRepository.save(
@@ -62,9 +62,9 @@ public class SellableApartmentJPATests {
     public void removeAllApartmentsTest(){
         var apartmentPhoto = new byte[5000];
 
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "1234-5677", "charesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "12345677", "charesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
 
         testEntityManager.persist(new  SellableApartment("CHARLESZ1",new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1, new BigDecimal("3000.00")));
@@ -78,11 +78,11 @@ public class SellableApartmentJPATests {
     @Test
     public void findAllTest(){
         var apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "1234-5677", "charesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "12345677", "charesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
-        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "1235-5678", "charlesz@us.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "12355678", "charlesz@us.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner3);
 
         var sellableApartment1 = new  SellableApartment("CHARLESZ1",new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1, new BigDecimal("3000.00"));
@@ -99,11 +99,11 @@ public class SellableApartmentJPATests {
     @Test
     public void findByIdTest(){
         byte[] apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "1234-5677", "charesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "12345677", "charesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
-        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "1235-5678", "charlesz@us.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "12355678", "charlesz@us.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner3);
         SellableApartment sellableApartment1 = new SellableApartment("CHARLESZ1",new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1, new BigDecimal("3000.00"));
         SellableApartment sellableApartment2 = new  SellableApartment("CHARLESZ2",new BigDecimal("500.00"), "My address2", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner2, new BigDecimal("3000.00"));

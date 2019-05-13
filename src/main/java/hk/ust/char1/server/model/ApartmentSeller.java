@@ -31,7 +31,7 @@ public class ApartmentSeller  extends ApartmentOwner implements Serializable {
         super();
     }
 
-    public ApartmentSeller(String username, String password, @Pattern(regexp = "[\\d]{4}-[\\d]{4}") String phoneNumber, @Email String email, List<Apartment> ownedApartments, @PositiveOrZero @DecimalMax("100.00") BigDecimal sellerRating) {
+    public ApartmentSeller(String username, String password, @Pattern(regexp = "[\\d]{4}[\\d]{4}") String phoneNumber, @Email String email, List<Apartment> ownedApartments, @PositiveOrZero @DecimalMax("100.00") BigDecimal sellerRating) {
         super(username, password, phoneNumber, email, ownedApartments);
         this.sellerRating = sellerRating;
     }

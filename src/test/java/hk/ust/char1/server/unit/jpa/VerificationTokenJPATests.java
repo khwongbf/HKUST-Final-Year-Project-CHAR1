@@ -43,7 +43,7 @@ public class VerificationTokenJPATests {
 
     @Test
     public void addSingleTest(){
-        var user = new User("comp3311","helloworld", "1234-5678", "iloveyou@gmail.com");
+        var user = new User("comp3311","helloworld", "12345678", "iloveyou@gmail.com");
         testEntityManager.persist(user);
         var verificationToken = new VerificationToken("faisfiowe4ote", user);
 
@@ -55,9 +55,9 @@ public class VerificationTokenJPATests {
 
     @Test
     public void removeAllTest(){
-        var user1 = new User("comp3311","helloworld", "1234-5677", "iloveyu@gmail.com");
+        var user1 = new User("comp3311","helloworld", "12345677", "iloveyu@gmail.com");
         testEntityManager.persist(user1);
-        var user2 = new User("comp3331","helloworld", "1234-5778", "ilveyou@gmail.com");
+        var user2 = new User("comp3331","helloworld", "12345778", "ilveyou@gmail.com");
         testEntityManager.persist(user2);
 
         var verificationToken1 = new VerificationToken("faisfiowe4ote", user1);
@@ -72,9 +72,9 @@ public class VerificationTokenJPATests {
 
     @Test
     public void findAllTest(){
-        var user1 = new User("obama","amabo","1234-5677", "iloveyu@gmail.com");
-        var user2 = new User("trump", "pmurt", "1234-5778", "ilveyou@gmail.com");
-        var user3 = new User("bush", "hsub", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo","12345677", "iloveyu@gmail.com");
+        var user2 = new User("trump", "pmurt", "12345778", "ilveyou@gmail.com");
+        var user3 = new User("bush", "hsub", "12345678", "iloveyou@gmail.com");
 
         testEntityManager.persist(user1);
         testEntityManager.persist(user2);
@@ -90,9 +90,9 @@ public class VerificationTokenJPATests {
 
     @Test
     public void findByIdTest(){
-        var user1 = new User("obama","amabo", "1234-5677", "iloveyu@gmail.com");
-        var user2 = new User("trump", "pmurt", "1234-5778", "ilveyou@gmail.com");
-        var user3 = new User("bush", "hsub", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo", "12345677", "iloveyu@gmail.com");
+        var user2 = new User("trump", "pmurt", "12345778", "ilveyou@gmail.com");
+        var user3 = new User("bush", "hsub", "12345678", "iloveyou@gmail.com");
 
         testEntityManager.persist(user1);
         testEntityManager.persist(user2);
@@ -111,9 +111,9 @@ public class VerificationTokenJPATests {
 
     @Test
     public void findByTokenTest(){
-        var user1 = new User("obama","amabo", "1234-5677", "iloveyu@gmail.com");
-        var user2 = new User("trump", "pmurt", "1234-5778", "ilveyou@gmail.com");
-        var user3 = new User("bush", "hsub", "1234-5678", "iloveyou@gmail.com");
+        var user1 = new User("obama","amabo", "12345677", "iloveyu@gmail.com");
+        var user2 = new User("trump", "pmurt", "12345778", "ilveyou@gmail.com");
+        var user3 = new User("bush", "hsub", "12345678", "iloveyou@gmail.com");
 
         testEntityManager.persist(user1);
         testEntityManager.persist(user2);

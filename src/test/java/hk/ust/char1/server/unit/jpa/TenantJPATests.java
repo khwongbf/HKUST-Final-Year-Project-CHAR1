@@ -40,7 +40,7 @@ public class TenantJPATests {
 
     @Test
     public void addSingleUserTest(){
-        var savedTenant = tenantRepository.save(new Tenant("comp3311","helloworld", "1234-5678", "iloveyou@gmail.com", new BigDecimal("90.00"), 3));
+        var savedTenant = tenantRepository.save(new Tenant("comp3311","helloworld", "12345678", "iloveyou@gmail.com", new BigDecimal("90.00"), 3));
 
         AssertionsForClassTypes.assertThat(savedTenant).hasFieldOrPropertyWithValue("username", "comp3311");
         AssertionsForClassTypes.assertThat(savedTenant).hasFieldOrPropertyWithValue("password","helloworld");
@@ -50,8 +50,8 @@ public class TenantJPATests {
 
     @Test
     public void removeAllUsersTest(){
-        testEntityManager.persist(new Tenant(new User("a", "a", "1234-5678", "a@b.com")));
-        testEntityManager.persist(new Tenant(new User("b", "a", "1254-5678", "b@b.com")));
+        testEntityManager.persist(new Tenant(new User("a", "a", "12345678", "a@b.com")));
+        testEntityManager.persist(new Tenant(new User("b", "a", "12545678", "b@b.com")));
 
         tenantRepository.deleteAll();
 
@@ -60,9 +60,9 @@ public class TenantJPATests {
 
     @Test
     public void findAllTest(){
-        var tenant1 = new Tenant("obama","amabo", "1234-5677", "iloveyu@gmail.com", new BigDecimal("90.00"), 3);
-        var tenant2 = new Tenant("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new BigDecimal("90.00"), 3);
-        var tenant3 = new Tenant("bush", "hsub", "1234-5678", "iloveyou@gmail.com", new BigDecimal("90.00"), 3);
+        var tenant1 = new Tenant("obama","amabo", "12345677", "iloveyu@gmail.com", new BigDecimal("90.00"), 3);
+        var tenant2 = new Tenant("trump", "pmurt", "12345778", "ilveyou@gmail.com", new BigDecimal("90.00"), 3);
+        var tenant3 = new Tenant("bush", "hsub", "12345678", "iloveyou@gmail.com", new BigDecimal("90.00"), 3);
 
         testEntityManager.persist(tenant1);
         testEntityManager.persist(tenant2);
@@ -73,9 +73,9 @@ public class TenantJPATests {
 
     @Test
     public void findByIdTest(){
-        var tenant1 = new Tenant("obama","amabo", "1234-5677", "iloveyu@gmail.com", new BigDecimal("90.00"), 3);
-        var tenant2 = new Tenant("trump", "pmurt", "1234-5778", "ilveyou@gmail.com", new BigDecimal("90.00"), 3);
-        var tenant3 = new Tenant("bush", "hsub", "1234-5678", "iloveyou@gmail.com", new BigDecimal("90.00"), 3);
+        var tenant1 = new Tenant("obama","amabo", "12345677", "iloveyu@gmail.com", new BigDecimal("90.00"), 3);
+        var tenant2 = new Tenant("trump", "pmurt", "12345778", "ilveyou@gmail.com", new BigDecimal("90.00"), 3);
+        var tenant3 = new Tenant("bush", "hsub", "12345678", "iloveyou@gmail.com", new BigDecimal("90.00"), 3);
 
         testEntityManager.persist(tenant1);
         testEntityManager.persist(tenant2);

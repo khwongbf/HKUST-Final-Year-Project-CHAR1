@@ -50,7 +50,7 @@ public class RentalApartmentJPATests {
     @Test
     public void addSingleApartmentTest(){
         byte[] apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner);
 
         RentalApartment savedApartment = rentalApartmentRepository.save(
@@ -64,9 +64,9 @@ public class RentalApartmentJPATests {
     public void removeAllApartmentsTest(){
         var apartmentPhoto = new byte[5000];
 
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "1234-5677", "charesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "12345677", "charesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
 
         testEntityManager.persist(new RentalApartment("asd", "CHARLESZ1", new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1, new BigDecimal("3000.00"), true, INDIVIDUAL));
@@ -80,11 +80,11 @@ public class RentalApartmentJPATests {
     @Test
     public void findAllTest(){
         byte[] apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "1234-5677", "charesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "12345677", "charesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
-        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "1235-5678", "charlesz@us.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "12355678", "charlesz@us.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner3);
 
         RentalApartment rentalApartment1 = new RentalApartment("asuy", "CHARLESZ1", new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1, new BigDecimal("3000.00"), true, INDIVIDUAL);
@@ -101,11 +101,11 @@ public class RentalApartmentJPATests {
     @Test
     public void findByIdTest(){
         byte[] apartmentPhoto = new byte[5000];
-        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "1234-5678", "charlesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner1 = new ApartmentOwner("charlesz", "charlesz", "12345678", "charlesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner1);
-        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "1234-5677", "charesz@ust.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner2 = new ApartmentOwner("charlesz1", "charlesz1", "12345677", "charesz@ust.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner2);
-        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "1235-5678", "charlesz@us.hk", new ArrayList<>());
+        ApartmentOwner apartmentOwner3 = new ApartmentOwner("charesz", "charesz", "12355678", "charlesz@us.hk", new ArrayList<>());
         testEntityManager.persist(apartmentOwner3);
         RentalApartment rentalApartment1 = new RentalApartment("asuy", "CHARLESZ1", new BigDecimal("500.00"), "My address1", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner1, new BigDecimal("3000.00"), true, INDIVIDUAL);
         RentalApartment rentalApartment2 = new RentalApartment("eiri", "CHARLESZ2", new BigDecimal("500.00"), "My address2", apartmentPhoto, new Geolocation(), new ArrayList<>(), true, apartmentOwner2, new BigDecimal("3000.00"), true, HOME_SHARING);

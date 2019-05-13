@@ -19,7 +19,7 @@ public class UserDTO {
      */
     @NotNull
     @NotEmpty
-    @Pattern(regexp = "^[\\d]{4}-[\\d]{4}$")
+    @Pattern(regexp = "^[\\d]{4}[\\d]{4}$")
     private String phone;
 
     @NotNull

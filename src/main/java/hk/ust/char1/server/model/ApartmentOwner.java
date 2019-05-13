@@ -32,7 +32,7 @@ public class ApartmentOwner extends User implements Serializable {
         this.setActivated(user.isActivated());
     }
 
-    public ApartmentOwner(String username, String password, @Pattern(regexp = "[\\d]{4}-[\\d]{4}") String phoneNumber, @Email String email, List<Apartment> ownedApartments) {
+    public ApartmentOwner(String username, String password, @Pattern(regexp = "[\\d]{4}[\\d]{4}") String phoneNumber, @Email String email, List<Apartment> ownedApartments) {
         super(username, password, phoneNumber, email);
         this.ownedApartments = ownedApartments;
     }

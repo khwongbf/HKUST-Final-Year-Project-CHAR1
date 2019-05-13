@@ -39,7 +39,7 @@ public class ApartmentOwnerJPATests {
 
     @Test
     public void addSingleTest(){
-        var savedApartmentOwner = apartmentOwnerRepository.save(new ApartmentOwner("comp3311","helloworld", "1234-5678", "iloveyou@gmail.com", new ArrayList<>()));
+        var savedApartmentOwner = apartmentOwnerRepository.save(new ApartmentOwner("comp3311","helloworld", "12345678", "iloveyou@gmail.com", new ArrayList<>()));
 
         AssertionsForClassTypes.assertThat(savedApartmentOwner).hasFieldOrPropertyWithValue("username", "comp3311");
         AssertionsForClassTypes.assertThat(savedApartmentOwner).hasFieldOrPropertyWithValue("password","helloworld");
@@ -47,8 +47,8 @@ public class ApartmentOwnerJPATests {
 
     @Test
     public void removeAllTest(){
-        testEntityManager.persist(new ApartmentOwner("obama","amabo", "1234-5677", "ilovyou@gmail.com", new ArrayList<>()));
-        testEntityManager.persist(new ApartmentOwner("trump", "pmurt","1234-5978", "ilveyou@gmail.com", new ArrayList<>()));
+        testEntityManager.persist(new ApartmentOwner("obama","amabo", "12345677", "ilovyou@gmail.com", new ArrayList<>()));
+        testEntityManager.persist(new ApartmentOwner("trump", "pmurt","12345978", "ilveyou@gmail.com", new ArrayList<>()));
 
         apartmentOwnerRepository.deleteAll();
 
@@ -57,9 +57,9 @@ public class ApartmentOwnerJPATests {
 
     @Test
     public void findAllTest(){
-        var apartmentOwner1 = new ApartmentOwner("obama","amabo", "1234-5678", "ilovyou@gmail.com", new ArrayList<>());
-        var apartmentOwner2 = new ApartmentOwner("trump", "pmurt","1234-5978", "ilveyou@gmail.com", new ArrayList<>());
-        var apartmentOwner3 = new ApartmentOwner("bush", "hsub", "1234-5677", "iloveyou@gmail.com", new ArrayList<>());
+        var apartmentOwner1 = new ApartmentOwner("obama","amabo", "12345678", "ilovyou@gmail.com", new ArrayList<>());
+        var apartmentOwner2 = new ApartmentOwner("trump", "pmurt","12345978", "ilveyou@gmail.com", new ArrayList<>());
+        var apartmentOwner3 = new ApartmentOwner("bush", "hsub", "12345677", "iloveyou@gmail.com", new ArrayList<>());
 
         testEntityManager.persist(apartmentOwner1);
         testEntityManager.persist(apartmentOwner2);
@@ -70,9 +70,9 @@ public class ApartmentOwnerJPATests {
 
     @Test
     public void findByIdTest(){
-        var apartmentOwner1 = new ApartmentOwner("obama","amabo", "1234-5677", "ilovyou@gmail.com", new ArrayList<>());
-        var apartmentOwner2 = new ApartmentOwner("trump", "pmurt","1234-5978", "ilveyou@gmail.com", new ArrayList<>());
-        var apartmentOwner3 = new ApartmentOwner("bush", "hsub", "1234-5678", "iloveyou@gmail.com", new ArrayList<>());
+        var apartmentOwner1 = new ApartmentOwner("obama","amabo", "12345677", "ilovyou@gmail.com", new ArrayList<>());
+        var apartmentOwner2 = new ApartmentOwner("trump", "pmurt","12345978", "ilveyou@gmail.com", new ArrayList<>());
+        var apartmentOwner3 = new ApartmentOwner("bush", "hsub", "12345678", "iloveyou@gmail.com", new ArrayList<>());
 
         testEntityManager.persist(apartmentOwner1);
         testEntityManager.persist(apartmentOwner2);

@@ -34,7 +34,7 @@ public class Tenant extends User{
     public Tenant() {
     }
 
-    public Tenant(String username, String password, @Pattern(regexp = "[\\d]{4}-[\\d]{4}") String phoneNumber, @Email String email, @DecimalMax("100.00") BigDecimal tenantRating, int numberRented) {
+    public Tenant(String username, String password, @Pattern(regexp = "[\\d]{4}[\\d]{4}") String phoneNumber, @Email String email, @DecimalMax("100.00") BigDecimal tenantRating, int numberRented) {
         super(username, password, phoneNumber, email);
         this.tenantRating = tenantRating;
         this.numberRented = numberRented;

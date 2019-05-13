@@ -24,7 +24,7 @@ public class Buyer extends User implements Serializable {
         super();
     }
 
-    public Buyer(String username, String password, @Pattern(regexp = "[\\d]{4}-[\\d]{4}") String phoneNumber, @Email String email, @PositiveOrZero @DecimalMax("100.00") BigDecimal buyerRating, int numberBought) {
+    public Buyer(String username, String password, @Pattern(regexp = "[\\d]{4}[\\d]{4}") String phoneNumber, @Email String email, @PositiveOrZero @DecimalMax("100.00") BigDecimal buyerRating, int numberBought) {
         super(username, password, phoneNumber, email);
         this.buyerRating = buyerRating;
         this.numberBought = numberBought;

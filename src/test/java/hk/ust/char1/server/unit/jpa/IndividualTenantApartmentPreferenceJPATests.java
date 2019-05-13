@@ -47,7 +47,7 @@ public class IndividualTenantApartmentPreferenceJPATests {
 
     @Test
     public void addSingleTest(){
-        var tenant = new Tenant(new User("a","a", "1234-5678", "a@b.com"));
+        var tenant = new Tenant(new User("a","a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant);
 
         var saved = individualTenantApartmentPreferenceRepository.save(
@@ -60,9 +60,9 @@ public class IndividualTenantApartmentPreferenceJPATests {
     @Test
     public void removeAllTest(){
 
-        var tenant1 = new Tenant(new User("a","a", "1234-5678", "a@b.com"));
+        var tenant1 = new Tenant(new User("a","a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
-        var tenant2 = new Tenant(new User("b","a", "1254-5678", "b@b.com"));
+        var tenant2 = new Tenant(new User("b","a", "12545678", "b@b.com"));
         testEntityManager.persist(tenant2);
 
         testEntityManager.persist(new IndividualTenantApartmentPreference(new BigDecimal("500.00"), "fuhrb", new Geolocation(new BigDecimal("12.753200"),new BigDecimal("179.132347")), true, new BigDecimal("4000.00"),tenant1));
@@ -75,11 +75,11 @@ public class IndividualTenantApartmentPreferenceJPATests {
 
     @Test
     public void findAllTest(){
-        var tenant1 = new Tenant(new User("a","a", "1234-5678", "a@b.com"));
+        var tenant1 = new Tenant(new User("a","a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
-        var tenant2 = new Tenant(new User("b","a", "1254-5678", "b@b.com"));
+        var tenant2 = new Tenant(new User("b","a", "12545678", "b@b.com"));
         testEntityManager.persist(tenant2);
-        var tenant3 = new Tenant(new User("c","a", "1284-5678", "c@b.com"));
+        var tenant3 = new Tenant(new User("c","a", "12845678", "c@b.com"));
         testEntityManager.persist(tenant3);
 
         var individualTenantApartmentPreference1 = new IndividualTenantApartmentPreference(new BigDecimal("500.00"), "agja", new Geolocation(new BigDecimal("12.753200"),new BigDecimal("179.132347")), true, new BigDecimal("4000.00"),tenant1);
@@ -95,11 +95,11 @@ public class IndividualTenantApartmentPreferenceJPATests {
 
     @Test
     public void findByIdTest(){
-        Tenant tenant1 = new Tenant(new User("a","a", "1234-5678", "a@b.com"));
+        Tenant tenant1 = new Tenant(new User("a","a", "12345678", "a@b.com"));
         testEntityManager.persist(tenant1);
-        Tenant tenant2 = new Tenant(new User("b","a", "1254-5678", "b@b.com"));
+        Tenant tenant2 = new Tenant(new User("b","a", "12545678", "b@b.com"));
         testEntityManager.persist(tenant2);
-        Tenant tenant3 = new Tenant(new User("c","a", "1284-5678", "c@b.com"));
+        Tenant tenant3 = new Tenant(new User("c","a", "12845678", "c@b.com"));
         testEntityManager.persist(tenant3);
         IndividualTenantApartmentPreference individualTenantApartmentPreference1 = new IndividualTenantApartmentPreference(new BigDecimal("500.00"), "gabu", new Geolocation(new BigDecimal("12.753200"),new BigDecimal("179.132347")), true, new BigDecimal("4000.00"),tenant1);
         IndividualTenantApartmentPreference individualTenantApartmentPreference2 = new IndividualTenantApartmentPreference(new BigDecimal("500.00"), "ihdfijg", new Geolocation(new BigDecimal("12.753200"),new BigDecimal("179.132347")), true, new BigDecimal("4000.00"),tenant2);

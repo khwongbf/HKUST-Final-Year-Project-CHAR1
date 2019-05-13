@@ -40,7 +40,7 @@ public class UserDetailsServiceTest {
     @MockBean
     private TokenRepository tokenRepository;
 
-    private User user1 = new User("charlesz", "9zselrahC", "5555-5555", "charlesz@connect.ust.hk");
+    private User user1 = new User("charlesz", "9zselrahC", "55555555", "charlesz@connect.ust.hk");
     private VerificationToken token1 = new VerificationToken("1234567890", user1);
 
     @Before
@@ -65,7 +65,7 @@ public class UserDetailsServiceTest {
         incomingDTO1.setEmail("charlesz@connect.ust.hk");
         incomingDTO1.setUsername("eto");
         incomingDTO1.setPassword("etoCH908");
-        incomingDTO1.setPhone("0000-0000");
+        incomingDTO1.setPhone("00000000");
 
         HashMap<RegistrationStatus, User> expectedMap1 = new HashMap<>();
 
@@ -76,7 +76,7 @@ public class UserDetailsServiceTest {
         incomingDTO2.setEmail("charlez@connect.ust.hk");
         incomingDTO2.setUsername("eto");
         incomingDTO2.setPassword("etoCH908");
-        incomingDTO2.setPhone("5555-5555");
+        incomingDTO2.setPhone("55555555");
 
         HashMap<RegistrationStatus, User> expectedMap2 = new HashMap<>();
         expectedMap2.put(RegistrationStatus.PHONE_EXISTS, null);
@@ -86,7 +86,7 @@ public class UserDetailsServiceTest {
         incomingDTO3.setEmail("charlez@connect.ust.hk");
         incomingDTO3.setUsername("eto");
         incomingDTO3.setPassword("etoCH98");
-        incomingDTO3.setPhone("0000-0000");
+        incomingDTO3.setPhone("00000000");
 
         HashMap<RegistrationStatus, User> expectedMap3 = new HashMap<>();
         expectedMap3.put(RegistrationStatus.POOR_PASSWORD, null);
@@ -96,14 +96,14 @@ public class UserDetailsServiceTest {
         incomingDTO4.setEmail("charlez@connect.ust.hk");
         incomingDTO4.setUsername("charlesz");
         incomingDTO4.setPassword("etoCH908");
-        incomingDTO4.setPhone("0000-0000");
+        incomingDTO4.setPhone("00000000");
 
         var expectedMap4 = new HashMap<RegistrationStatus, User>();
         expectedMap4.put(RegistrationStatus.USERNAME_EXISTS, null);
         AssertionsForClassTypes.assertThat(userDetailsService.incomingNewRegistration(incomingDTO4)).isEqualTo(expectedMap4);
 
         UserDTO incomingDTO5 = new UserDTO();
-        incomingDTO5.setPhone("0000-0000");
+        incomingDTO5.setPhone("00000000");
         incomingDTO5.setEmail("brianmak@connect.ust.hk");
         incomingDTO5.setUsername("brianmak");
         incomingDTO5.setPassword("ABCdef12");
@@ -122,7 +122,7 @@ public class UserDetailsServiceTest {
     public void updateVerificationTokenTest(){
 
         var beforeTime = LocalDateTime.now();
-        var user2 = new User("brianmak","47174hghsiHSGHI", "9999-9999", "brianmak@ust.hk");
+        var user2 = new User("brianmak","47174hghsiHSGHI", "99999999", "brianmak@ust.hk");
         var token2 = new VerificationToken("toegdfsk", user2);
         var newToken = "COMP3311";
 
@@ -145,7 +145,7 @@ public class UserDetailsServiceTest {
 
     @Test
     public void activateUserTest() {
-        var user2 = new User("brianmak","47174hghsiHSGHI", "9999-9999", "brianmak@ust.hk");
+        var user2 = new User("brianmak","47174hghsiHSGHI", "99999999", "brianmak@ust.hk");
 
         assertThat(user2).hasFieldOrPropertyWithValue("activated", false);
 

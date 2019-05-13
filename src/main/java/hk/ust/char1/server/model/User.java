@@ -29,7 +29,7 @@ public class User implements Serializable, UserDetails {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Pattern(regexp = "[\\d]{4}-[\\d]{4}")
+    @Pattern(regexp = "[\\d]{4}[\\d]{4}")
     @Column(name = "PHONE")
     private String phoneNumber;
 
@@ -48,7 +48,7 @@ public class User implements Serializable, UserDetails {
         this.role = new ArrayList<>();
     }
 
-    public User(String username, String password, @Pattern(regexp = "[\\d]{4}-[\\d]{4}") String phoneNumber, @Email String email) {
+    public User(String username, String password, @Pattern(regexp = "[\\d]{4}[\\d]{4}") String phoneNumber, @Email String email) {
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;

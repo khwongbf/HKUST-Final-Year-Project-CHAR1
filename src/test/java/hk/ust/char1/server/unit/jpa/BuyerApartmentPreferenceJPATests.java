@@ -46,7 +46,7 @@ public class BuyerApartmentPreferenceJPATests {
 
     @Test
     public void addSingleApartmentTest(){
-        var buyer = new Buyer("obama", "obama", "1234-5678", "a@b.com", new BigDecimal("0.00"),0);
+        var buyer = new Buyer("obama", "obama", "12345678", "a@b.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer);
 
         var savedApartment = buyerApartmentPreferenceRepository.save(
@@ -59,9 +59,9 @@ public class BuyerApartmentPreferenceJPATests {
     @Test
     public void removeAllApartmentsTest(){
 
-        Buyer buyer1 = new Buyer("obama", "obama", "1234-5678", "a@b.com", new BigDecimal("0.00"),0);
+        Buyer buyer1 = new Buyer("obama", "obama", "12345678", "a@b.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer1);
-        Buyer buyer2 = new Buyer("trump", "trump", "2334-5678", "a@c.com", new BigDecimal("0.00"),0);
+        Buyer buyer2 = new Buyer("trump", "trump", "23345678", "a@c.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer2);
 
         testEntityManager.persist(new BuyerApartmentPreference(new BigDecimal("500.00"), new Geolocation(new BigDecimal("12.753200"),new BigDecimal("179.132347")), true, "sfh", new BigDecimal("400000.00"),buyer1));
@@ -74,11 +74,11 @@ public class BuyerApartmentPreferenceJPATests {
 
     @Test
     public void findAllTest(){
-        var buyer1 = new Buyer("obama", "obama", "1234-5678", "a@b.com", new BigDecimal("0.00"),0);
+        var buyer1 = new Buyer("obama", "obama", "12345678", "a@b.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer1);
-        var buyer2 = new Buyer("trump", "trump", "2334-5678", "a@c.com", new BigDecimal("0.00"),0);
+        var buyer2 = new Buyer("trump", "trump", "23345678", "a@c.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer2);
-        var buyer3 = new Buyer("bush", "bush", "3434-5678", "b@b.com", new BigDecimal("0.00"),0);
+        var buyer3 = new Buyer("bush", "bush", "34345678", "b@b.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer3);
 
         var buyerApartmentPreference1 = new BuyerApartmentPreference(new BigDecimal("500.00"), new Geolocation(new BigDecimal("12.753200"),new BigDecimal("179.132347")), true, "472134", new BigDecimal("400000.00"),buyer1);
@@ -95,11 +95,11 @@ public class BuyerApartmentPreferenceJPATests {
 
     @Test
     public void findByIdTest(){
-        Buyer buyer1 = new Buyer("obama", "obama", "1234-5678", "a@b.com", new BigDecimal("0.00"),0);
+        Buyer buyer1 = new Buyer("obama", "obama", "12345678", "a@b.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer1);
-        Buyer buyer2 = new Buyer("trump", "trump", "2334-5678", "a@c.com", new BigDecimal("0.00"),0);
+        Buyer buyer2 = new Buyer("trump", "trump", "23345678", "a@c.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer2);
-        Buyer buyer3 = new Buyer("bush", "bush", "3434-5678", "b@b.com", new BigDecimal("0.00"),0);
+        Buyer buyer3 = new Buyer("bush", "bush", "34345678", "b@b.com", new BigDecimal("0.00"),0);
         testEntityManager.persist(buyer3);
         var buyerApartmentPreference1 = new BuyerApartmentPreference(new BigDecimal("500.00"), new Geolocation(new BigDecimal("12.753200"),new BigDecimal("179.132347")), true, "372f", new BigDecimal("400000.00"),buyer1);
         var buyerApartmentPreference2 = new BuyerApartmentPreference(new BigDecimal("500.00"), new Geolocation(new BigDecimal("12.753100"),new BigDecimal("19.132347")), true, "gfaw", new BigDecimal("400000.00"),buyer2);
