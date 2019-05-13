@@ -137,7 +137,7 @@ public class UserDetailsController {
     }
 
     /**
-     * Forget Email function.
+     * Forget Email function. The user must not have verified their email.
      * @param request the incoming request.
      * @param userEmailDTO An object that contains the username and the new email address.
      * @return HTTP Response that contains :<ul><li>a status code of : <ul><li><code>403</code> (for unsuccessful change of email)</li> <li><code>200</code> (for successful change of email)</li></ul></li> <li>a string in the response body for explanation</li></ul>
