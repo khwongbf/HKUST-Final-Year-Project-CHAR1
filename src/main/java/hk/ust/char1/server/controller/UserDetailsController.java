@@ -107,6 +107,13 @@ public class UserDetailsController {
     }
 
 
+    /**
+     * Email Verification link.
+     * @param request The incoming web request
+     * @param model the model attribute.
+     * @param token The verification token attached to the link within an email.
+     * @return HTTP response on whether the confirmation is successful.
+     */
     @GetMapping("/confirmRegistration")
     public ResponseEntity<String> confirmRegistration(WebRequest request, Model model,@RequestParam("token") String token) {
         Locale locale=request.getLocale();
