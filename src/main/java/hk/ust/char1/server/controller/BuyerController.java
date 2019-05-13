@@ -36,6 +36,12 @@ public class BuyerController {
 		this.jwtDecoder = jwtDecoder;
 	}
 
+	/**
+	 * Searches for apartments by using raw request, and orders them by nearest location.
+	 * @param buyerPreferenceDTO The object that contains details of buyer preference.
+	 * @param request The request that contains the user's info in header "Authorization" with value as a JWT token.
+	 * @return HTTP response that contains query results in the body.
+	 */
 	@PostMapping("/find")
 	public ResponseEntity<List<SellableApartmentDTO>> findApartmentByDTO( @Valid @RequestBody BuyerPreferenceDTO buyerPreferenceDTO, WebRequest request){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(request);
@@ -56,6 +62,12 @@ public class BuyerController {
 		}
 	}
 
+	/**
+	 * Adds a new buyer preference on apartments they would like to buy.
+	 * @param buyerPreferenceDTO Object that contains details of the buyer preference.
+	 * @param request The incoming web request that contains header "Authorization" with the buyer's JWT token as value.
+	 * @return HTTP response of whether the addition is successful.
+	 */
 	@PostMapping("/add")
 	public ResponseEntity addNewPreference( @Valid @RequestBody BuyerPreferenceDTO buyerPreferenceDTO, WebRequest request){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(request);
@@ -75,6 +87,12 @@ public class BuyerController {
 		}
 	}
 
+	/**
+	 * Modifies the buyer preference on apartments they would like to buy.
+	 * @param buyerPreferenceDTO Object that contains the details of the buyer preference, with {@link BuyerPreferenceDTO#getTitle()} as the identifier.
+	 * @param request The incoming web request that contains the header "Authorization" with value of the JWT token of the user.
+	 * @return HTTP response of whether the modification is successful.
+	 */
 	@PutMapping("/modify")
 	public ResponseEntity modifyPreference(@Valid @RequestBody BuyerPreferenceDTO buyerPreferenceDTO, WebRequest request){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(request);
@@ -95,6 +113,12 @@ public class BuyerController {
 
 	}
 
+	/**
+	 * Deletes the buyer preference on apartments the would like to buy.
+	 * @param buyerPreferenceDTO Object that contains the details of the buyer preference. Only {@link BuyerPreferenceDTO#getTitle()} is used here.
+	 * @param request The incoming web request that contains the header "Authorization" with value of the JWT token of the user.
+	 * @return HTTP response of whether the deletion is successful.
+	 */
 	@DeleteMapping("/delete")
 	public ResponseEntity deletePreference(@Valid @RequestBody BuyerPreferenceDTO buyerPreferenceDTO, WebRequest request){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(request);
