@@ -66,6 +66,12 @@ public class TenantController {
 		this.jwtTokenGenerator = jwtTokenGenerator;
 	}
 
+	/**
+	 * With provision of a raw preference, searches for apartments under lease.
+	 * @param rentalApartmentPreferenceDTO the object that indicates the tenant's preference.
+	 * @param webRequest the web request that contains the user's info.
+	 * @return HTTP response that contains the query results as body.
+	 */
 	@PostMapping("/findApartmentScratch")
 	public ResponseEntity<List<RentalApartmentDTO>> findApartmentByDTO(
 			@Valid @RequestBody RentalApartmentPreferenceDTO rentalApartmentPreferenceDTO, WebRequest webRequest){
@@ -86,6 +92,12 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Using the specified preference, search for apartment under lease.
+	 * @param rentalApartmentPreferenceDTO the object that indicates which preference to use.
+	 * @param webRequest the web request that contains the user's info at header "Authorization".
+	 * @return HTTP Response that contains query results in body.
+	 */
 	@PostMapping("/findApartmentByStoredPreference")
 	public ResponseEntity<List<RentalApartmentDTO>> findApartmentByPreference(
 			@Valid @RequestBody RentalApartmentPreferenceDTO rentalApartmentPreferenceDTO, WebRequest webRequest){
@@ -106,6 +118,12 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Adds an individual apartment preference on the user.
+	 * @param rentalApartmentPreferenceDTO the object that contains the preference.
+	 * @param webRequest the web request that contains the user's info at header "Authorization".
+	 * @return HTTP Response that contains query results in body.
+	 */
 	@PostMapping("/apartmentPreferences/add")
 	public ResponseEntity addNewApartmentPreference(
 			@Valid @RequestBody RentalApartmentPreferenceDTO rentalApartmentPreferenceDTO, WebRequest webRequest){
