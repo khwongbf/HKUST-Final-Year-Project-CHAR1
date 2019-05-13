@@ -241,7 +241,7 @@ public class ApartmentOwnerController {
 	/**
 	 * Removes an apartment from lease.
 	 * @param rentalDetailsDTO The object which contain the unique tag for the apartment to be removed.
-	 * @param webRequest the web request that contains the user information in header "Authorization"
+	 * @param webRequest The web request that contains "Authorization" header with a JWT token as the value for obtaining the username and roles.
 	 * @return HTTP response of whether the removal is successful.
 	 */
 	@DeleteMapping("/deleteLease")
@@ -257,6 +257,12 @@ public class ApartmentOwnerController {
 		}
 	}
 
+	/**
+	 * Searches for tenants that mathces the criteria given.
+	 * @param rentalMatchingCriteriaDTO The object that contains the criteria to be searched and filtered for
+	 * @param webRequest The web request that contains "Authorization" header with a JWT token as the value for obtaining the username and roles.
+	 * @return HTTP response of whether the query is successful (at the status code),  and the username and contacts of the tenants.that matches in the body within the response if the query is successful.
+	 */
 	@PostMapping("/searchMatchingTenants")
 	public ResponseEntity<List<UserDTO>> searchTenant(@Valid @RequestBody RentalMatchingCriteriaDTO rentalMatchingCriteriaDTO, WebRequest webRequest){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(webRequest);
