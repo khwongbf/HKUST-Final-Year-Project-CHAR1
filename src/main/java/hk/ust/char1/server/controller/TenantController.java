@@ -122,7 +122,7 @@ public class TenantController {
 	 * Adds an individual apartment preference on the user.
 	 * @param rentalApartmentPreferenceDTO the object that contains the preference.
 	 * @param webRequest the web request that contains the user's info at header "Authorization".
-	 * @return HTTP Response that contains query results in body.
+	 * @return HTTP Response that indicates whether the addition is successful.
 	 */
 	@PostMapping("/apartmentPreferences/add")
 	public ResponseEntity addNewApartmentPreference(
@@ -145,6 +145,12 @@ public class TenantController {
 		}
 	}
 
+	/**
+	 * Modifies the apartment preference on the given user.
+	 * @param rentalApartmentPreferenceDTO the object that contains the preference, with {@link RentalApartmentPreferenceDTO#getTitle()} as the identifier.
+	 * @param webRequest the web request that contians the user's info at header "Authorization".
+	 * @return HTTP response that indicates whether the modification is successful.
+	 */
 	@PutMapping("/apartmentPreference/modify")
 	public ResponseEntity modifyApartmentPreference(
 			@Valid @RequestBody RentalApartmentPreferenceDTO rentalApartmentPreferenceDTO, WebRequest webRequest){

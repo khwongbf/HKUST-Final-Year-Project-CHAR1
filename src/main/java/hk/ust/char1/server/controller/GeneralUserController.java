@@ -62,6 +62,11 @@ public class GeneralUserController {
 		this.jwtTokenGenerator = jwtTokenGenerator;
 	}
 
+	/**
+	 * Registers the user as a new buyer.
+	 * @param request The web request that contains a header "Authorization", which contains the JWT token of the user.
+	 * @return HTTP response that contains a new "Authorization" header. Please replace the current header with this header to access buyer functions.
+	 */
 	@PostMapping("/registerAsNewBuyer")
 	public ResponseEntity registerAsBuyer(WebRequest request){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(request);
@@ -85,6 +90,11 @@ public class GeneralUserController {
 		}
 	}
 
+	/**
+	 * Registers the user as a new tenant.
+	 * @param request The web request that contains a header "Authorization", which contains the JWT token of the user.
+	 * @return HTTP response that contains a new "Authorization" header. Please replace the current header with this header to access tenant functions.
+	 */
 	@PostMapping("/registerAsNewTenant")
 	public ResponseEntity registerAsTenant(WebRequest request){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(request);
@@ -108,6 +118,12 @@ public class GeneralUserController {
 		}
 	}
 
+	/**
+	 * Registers the user as a new landlord.
+	 * @param apartmentDTO the apartment information that the new owner owns.
+	 * @param request The web request that contains a header "Authorization", which contains the JWT token of the user.
+	 * @return HTTP response that contains a new "Authorization" header. Please replace the current header with this header to access landlord functions.
+	 */
 	@PostMapping("/registerAsNewLandlord")
 	public ResponseEntity registerAsNewOwner(@Valid @RequestBody ApartmentDTO apartmentDTO, WebRequest request){
 		DecodedJWT decodedJWT = jwtDecoder.decodeFromRequest(request);
